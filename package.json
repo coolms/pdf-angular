@@ -1,0 +1,44 @@
+{
+  "name": "@coolms/pdf-angular",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The CoolMS PDF viewer for Angular. Registers itself with @coolms/document-viewer, so consumers dispatch through the viewer host rather than importing the component.",
+  "license": "MIT",
+  "author": {
+    "name": "Dmitry Popov",
+    "email": "d.popov@coolms.com"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@coolms/core-angular": "^0.2.0",
+    "@coolms/document-viewer-angular": "^0.1.0"
+  },
+  "dependencies": {
+    "ngx-extended-pdf-viewer": "^29.0.1"
+  },
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolms/pdf-angular.git"
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json",
+    "typecheck": "tsc -p tsconfig.lib.json --noEmit",
+    "lint": "eslint 'src/**/*.ts'",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "@angular/common": "^22.1.3",
+    "@angular/compiler": "^22.1.3",
+    "@angular/compiler-cli": "^22.1.3",
+    "@angular/core": "^22.1.3",
+    "ng-packagr": "^22.1.1",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.3.0",
+    "typescript": "^6.0.0"
+  }
+}
