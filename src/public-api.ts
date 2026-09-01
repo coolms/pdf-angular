@@ -7,3 +7,5 @@
 export { PdfViewerComponent } from './pdf-viewer.component';
 export type { PdfProfileConfig } from './pdf-viewer.component';
 export { provideCoolmsPdf } from './pdf-viewers-bootstrap';
+export { CMS_PDF_IMAGE_PICKER } from './pdf-image-picker';
+export type { CmsPdfImagePicker } from './pdf-image-picker';
