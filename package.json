@@ -1,6 +1,6 @@
 {
   "name": "@coolms/pdf-angular",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "The CoolMS PDF viewer for Angular. Registers itself with @coolms/document-viewer, so consumers dispatch through the viewer host rather than importing the component.",
   "license": "MIT",
   "author": {
