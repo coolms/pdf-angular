@@ -21,7 +21,7 @@ export function provideCoolmsPdf(): EnvironmentProviders {
             const registry = inject(ViewerComponentRegistry);
             registry.register('app-pdf-viewer', PdfViewerComponent);
 
-            // `app-office-viewer` (#1788) is the SAME component: xlsx and pptx
+            // `app-office-viewer` is the SAME component: xlsx and pptx
             // are shown as a PDF rendition produced by LibreOffice, because no
             // client-side library renders them faithfully enough to ship. The
             // caller points it at `/document/preview.pdf`, so by the time the

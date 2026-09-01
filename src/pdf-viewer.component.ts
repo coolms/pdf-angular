@@ -101,9 +101,9 @@ export interface PdfProfileConfig {
             color: var(--cms-danger, #dc2626);
         }
         /*
-         * ── The viewer wears the admin's theme (#2405) ──────────────────
+         * -- The viewer wears the admin's theme ------------------
          *
-         * ⚠️ MEASURED in the running admin, and the numbers are why this is
+         *  MEASURED in the running admin, and the numbers are why this is
          * written as explicit colours rather than as a variable map:
          *
          *   - #toolbarContainer is a hard-coded rgb(249,249,250). It
@@ -131,7 +131,7 @@ export interface PdfProfileConfig {
          * working when the library changes WHEN it injects.
          */
         /*
-         * ⚠️ The native controls -- the zoom dropdown's POPUP list, its arrow,
+         *  The native controls -- the zoom dropdown's POPUP list, its arrow,
          * the scrollbars -- are browser chrome. CSS paints the closed select
          * (it computes --cms-input-bg on --cms-text), but the popup takes
          * color-scheme and nothing else, which is why the dropdown still
@@ -146,7 +146,7 @@ export interface PdfProfileConfig {
          * library's declaration is important, and an important is only beaten
          * by another.
          *
-         * ⚠️ It said inherit here until a user reported a WHITE dialog with a
+         *  It said inherit here until a user reported a WHITE dialog with a
          * DARK textarea and an unreadable title. inherit follows the BROWSER;
          * our tokens follow data-theme -- and the admin theme has ZERO
          * prefers-color-scheme rules, so it is light unless data-theme says
@@ -167,12 +167,12 @@ export interface PdfProfileConfig {
         }
 
         /*
-         * ⚠️ The toolbar renders in THREE ROWS for about half a second on load.
+         *  The toolbar renders in THREE ROWS for about half a second on load.
          * REPRODUCED and timed, sampling every 60ms from the click that opens
          * the viewer: at t=506ms it is 79px tall with its buttons on six
          * distinct y positions; at t=983ms it snaps to 34px and one row.
          *
-         * ⚠️ And the obvious diagnosis was WRONG. Declaring the library's own
+         *  And the obvious diagnosis was WRONG. Declaring the library's own
          * one-row flex rule here, earlier in the cascade, changed nothing --
          * the probe still read 79px and six y positions. Measuring DURING the
          * wrap window is what corrected it:
@@ -189,7 +189,7 @@ export interface PdfProfileConfig {
          * row-reverse scrambles the order outright, and a plain flex row moves
          * the settled buttons from one y to three (99 / 100 / 104).
          *
-         * ⚠️ min-width: max-content was tried and did NOTHING -- the group
+         *  min-width: max-content was tried and did NOTHING -- the group
          * stayed 128px. That is the tell: its children are float: right, and
          * floats contribute nothing to a container's intrinsic size, so
          * max-content really is that small. min-width cannot raise what it
@@ -198,7 +198,7 @@ export interface PdfProfileConfig {
          * So the floats have to go, for that one group. Out of float and into
          * flow is what lets the row size to its content and stop stacking.
          *
-         * ⚠️ This is NOT free, and the cost was measured rather than hoped:
+         *  This is NOT free, and the cost was measured rather than hoped:
          * every button x is identical and the heights are identical, but the
          * settled y goes from a single 99 to 99/100 -- 1px of variance on some
          * buttons, because a flex row centres each wrapper on its own height
@@ -227,7 +227,7 @@ export interface PdfProfileConfig {
         }
 
         /*
-         * ⚠️ STATED, never inherited. currentColor is the icon's own fill, so
+         *  STATED, never inherited. currentColor is the icon's own fill, so
          * an unstated colour is whatever the surrounding app happens to use --
          * which is exactly how a white icon ended up on a white toolbar. The
          * muted token because a toolbar icon is chrome; the hover rule brings
@@ -239,7 +239,7 @@ export interface PdfProfileConfig {
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton svg,
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbarButton svg {
             /*
-             * ⚠️ MEASURED, and this is what made the bar unreadable: muted
+             *  MEASURED, and this is what made the bar unreadable: muted
              * (#6b7f96) on the toolbar (#1a2332) is 3.83:1 -- barely over the
              * 3:1 floor for a graphical object, and fine only while the icon
              * was a chunky filled svg. A thin line glyph needs more. Secondary
@@ -257,7 +257,7 @@ export interface PdfProfileConfig {
          * the resting state.
          */
         /*
-         * ⚠️ The blue ring around a clicked button is a BORDER, not an outline:
+         *  The blue ring around a clicked button is a BORDER, not an outline:
          *
          *     ngx-extended-pdf-viewer button:focus
          *         { outline: none; border: 1px solid blue }
@@ -297,7 +297,7 @@ export interface PdfProfileConfig {
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbarButton:hover,
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton:focus-visible {
             color: var(--cms-text);
-            /* ⚠️ This was var(--cms-surface-2), a token the kit does not
+            /*  This was var(--cms-surface-2), a token the kit does not
                define, so every hover fell through to a hard-coded rgba. An
                invented token name never errors -- it just quietly paints
                something the kit never chose. --cms-hover is the real one. */
@@ -313,7 +313,7 @@ export interface PdfProfileConfig {
          * Pressed reads as a raised ground and full-strength ink, never as a
          * colour -- the admin never signals active with hue.
          *
-         * ⚠️ The ground must be THEME-AWARE, and --cms-sidebar-active is not:
+         *  The ground must be THEME-AWARE, and --cms-sidebar-active is not:
          * MEASURED at #2d3f57 in BOTH themes, because the admin's sidebar is
          * always dark navy and its tokens never flip. Against --cms-text, which
          * IS theme-aware, that put #111827 on dark navy in light mode -- an
@@ -329,7 +329,7 @@ export interface PdfProfileConfig {
             border-color: var(--cms-border);
         }
         /*
-         * ⚠️ THREE classes, because the library uses three:
+         *  THREE classes, because the library uses three:
          *
          *     .toolbarButton.toggled:hover { background-color: #d1d1d2 }   (0,3,1)
          *
@@ -338,7 +338,7 @@ export interface PdfProfileConfig {
          * toggle, a zoom mode) painted it light grey under --cms-text and the
          * icon vanished.
          *
-         * ⚠️ This is the SAME rule already fixed for the secondary menu, where
+         *  This is the SAME rule already fixed for the secondary menu, where
          * the library's version is (0,4,1). Fixing one and assuming the other
          * is how the defect came back.
          *
@@ -359,7 +359,7 @@ export interface PdfProfileConfig {
         }
 
         /*
-         * ⚠️ The secondary menu needs TWO classes, not one.
+         *  The secondary menu needs TWO classes, not one.
          *
          * MEASURED on a clean load: every caption and glyph in the menu
          * computed rgb(0, 0, 0) against our #1a2332 background -- **1.33:1**,
@@ -376,7 +376,7 @@ export interface PdfProfileConfig {
          * count, and type count never beats a class. Match their shape and add
          * our own prefix on top.
          *
-         * ⚠️ The value it was losing to is #000 because the library mounts its
+         *  The value it was losing to is #000 because the library mounts its
          * LIGHT theme -- its theme() input is never set, so <pdf-light-theme> is
          * in the DOM under both of our themes, and its blob is what we override.
          *
@@ -394,7 +394,7 @@ export interface PdfProfileConfig {
          *                box-shadow: inset 3px 0 0 var(--cms-accent); }
          *
          * -- a raised ground, full-strength ink and a 3px inset accent bar.
-         * Never a coloured label. ⚠️ And MEASURED, --cms-accent is #F5A623,
+         * Never a coloured label.  And MEASURED, --cms-accent is #F5A623,
          * AMBER: the kit's accent was never blue. --cms-primary is a different
          * token doing a different job, and reaching for it is what made the
          * active item read as arbitrary.
@@ -410,7 +410,7 @@ export interface PdfProfileConfig {
             background-color: var(--cms-hover);
         }
         /*
-         * ⚠️ FOUR classes, because the library uses four:
+         *  FOUR classes, because the library uses four:
          *
          *     .secondaryToolbar .secondaryToolbarButton.toggled:hover
          *         { background-color: rgb(214, 214, 214) }      (0,4,1)
@@ -435,7 +435,7 @@ export interface PdfProfileConfig {
          * The page fields, the labels and the zoom select sit in the same
          * strip and were the last light boxes in it.
          *
-         * ⚠️ .html is part of the selector on purpose. The library paints
+         *  .html is part of the selector on purpose. The library paints
          * these from its light-theme blob at
          *
          *     .html .toolbarField  (0,2,1)  background #fff, colour #000
@@ -463,7 +463,7 @@ export interface PdfProfileConfig {
             border-color: var(--cms-border);
         }
         /*
-         * ⚠️ !important, and only because the library got there first:
+         *  !important, and only because the library got there first:
          *
          *     ngx-extended-pdf-viewer select { background-color: #fff !important }
          *
@@ -502,7 +502,7 @@ export interface PdfProfileConfig {
          * and #e4e6ea light, and this rule is its only consumer, so changing
          * one of those values changes the desk and nothing else.
          *
-         * ⚠️ An earlier comment here claimed the desk stayed dark in BOTH
+         *  An earlier comment here claimed the desk stayed dark in BOTH
          * themes "deliberately". It never did: the token has been per-theme
          * since it was introduced. Corrected rather than implemented, because
          * a light-grey desk under a white page still gives the edge and is what
@@ -521,7 +521,7 @@ export interface PdfProfileConfig {
 
 
         /*
-         * ── Our icons (#2406) ──────────────────────────────────────────
+         * -- Our icons ------------------------------------------
          *
          * The toolbar is the library's own components, each wrapping a
          * pdf-shy-button that renders an inline SVG. None of them exposes an
@@ -622,7 +622,7 @@ export interface PdfProfileConfig {
         cms-pdf-viewer ngx-extended-pdf-viewer #secondaryToolbarToggle > svg { display: none; }
         cms-pdf-viewer ngx-extended-pdf-viewer #secondaryToolbarToggle::before { content: '\\f5d3'; }
         /*
-         * -- Spacing (#2412) --------------------------------------------
+         * -- Spacing --------------------------------------------
          *
          * WARNING: the toolbar borrows the SPRITE'S transparent gutter back
          * with negative margins --
@@ -654,7 +654,7 @@ export interface PdfProfileConfig {
             margin-right: 4px !important;
         }
         /*
-         * ⚠️ The class is REPEATED on purpose. The corrector is an
+         *  The class is REPEATED on purpose. The corrector is an
          * Angular component style, so what actually ships is
          * .margin-left-correct[_ngcontent-xyz] -- specificity (0,2,0). Naming
          * the class once gives us (0,1,2), which loses on the class count
@@ -672,7 +672,7 @@ export interface PdfProfileConfig {
         }
 
         /*
-         * The rest of what the toolbar actually shows (#2409). MEASURED: 17
+         * The rest of what the toolbar actually shows. MEASURED: 17
          * buttons are visible with this profile, and #2406 reached 9 of them --
          * the other 8 kept the library svg, at full size, beside ours at half.
          *
@@ -715,7 +715,7 @@ export interface PdfProfileConfig {
         /*
          * -- Menu rows: padding, alignment, and one item per row -----------
          *
-         * ⚠️ The caption carries position: relative; top: -3px from the
+         *  The caption carries position: relative; top: -3px from the
          * library -- a nudge tuned for its own 27px sprite. Against a 24px
          * icon column in a centred flex row it drags the label 3px ABOVE the
          * icon, and align-items cannot fix it because the offset is applied
@@ -724,7 +724,7 @@ export interface PdfProfileConfig {
          * The stock padding is 3px 0 1px 4px: 3 top against 1 bottom, 4 left
          * against 0 right. Nothing about it is even.
          *
-         * ⚠️ And the container is display: block with inline-flex buttons.
+         *  And the container is display: block with inline-flex buttons.
          * While their width is still indeterminate -- which is exactly what the
          * loading phase is -- they size to content and several fit per line.
          * That is the menu rendering in three rows until the document loads,
@@ -739,7 +739,7 @@ export interface PdfProfileConfig {
             flex-direction: column;
         }
         /*
-         * ⚠️ width: 100% would OVERFLOW here, and box-sizing cannot save it:
+         *  width: 100% would OVERFLOW here, and box-sizing cannot save it:
          *
          *     ngx-extended-pdf-viewer div.zoom * { box-sizing: content-box !important }
          *
@@ -782,7 +782,7 @@ export interface PdfProfileConfig {
          *       html[dir="ltr"] ngx-extended-pdf-viewer .secondaryToolbarButton
          *
          *     which is (0,2,2), the SAME specificity as our row rule and later
-         *     in the cascade, so its longhand beat our shorthand. ⚠️ Checked by
+         *     in the cascade, so its longhand beat our shorthand.  Checked by
          *     reading the computed padding back, not assumed -- a declaration
          *     that quietly loses is what put a scrollbar on this menu one slice
          *     ago. Prefixing html[dir=...] the way the library does takes ours
@@ -805,9 +805,9 @@ export interface PdfProfileConfig {
         }
 
         /*
-         * -- The secondary menu (#2415) ---------------------------------
+         * -- The secondary menu ---------------------------------
          *
-         * ⚠️ A DIFFERENT DOM from the primary bar, which is why the rules
+         *  A DIFFERENT DOM from the primary bar, which is why the rules
          * above do not reach it:
          *
          *     <button id=...>
@@ -821,7 +821,7 @@ export interface PdfProfileConfig {
          * on one axis whatever the glyph does.
          *
          * The ids are the primary ones re-prefixed by PdfShyButtonService --
-         * primaryZoomIn -> secondaryZoomIn. ⚠️ Except the next-page entry,
+         * primaryZoomIn -> secondaryZoomIn.  Except the next-page entry,
          * which is literally #primaryNextPage while every sibling is
          * secondary*. Read off the running viewer, not derived from the rule.
          *
@@ -932,7 +932,7 @@ export interface PdfProfileConfig {
          * The mapping is the admin's own: .cms-btn-primary is an accent fill
          * with accent-fg ink, .cms-btn is surface + border + body text.
          *
-         * ⚠️ The primary ink is --cms-accent-fg, never --cms-text-inverse.
+         *  The primary ink is --cms-accent-fg, never --cms-text-inverse.
          * The fill is theme-invariant amber, so its foreground must be too --
          * eight rules had that backwards and were unreadable in one theme.
          */
@@ -979,7 +979,7 @@ export interface PdfProfileConfig {
         /*
          * -- The Add-comment panel wears the kit's buttons -------------------
          *
-         * ⚠️ It IS a .dialog (dialog#commentManagerDialog.dialog), so the
+         *  It IS a .dialog (dialog#commentManagerDialog.dialog), so the
          * --button-primary-* / --button-secondary-* mapping above is what
          * colours these. Its buttons sit in .dialogButtonsGroup -- NOT the
          * .commentManagerActions the library's CSS mentions, which is
@@ -1000,7 +1000,7 @@ export interface PdfProfileConfig {
             --comment-dialog-border: var(--cms-border);
             --comment-dialog-header-bg: var(--cms-surface-muted);
             --comment-button-hover-bg-dialog: var(--cms-btn-hover-bg);
-            /* ⚠️ !important because pdf.js paints this one INLINE, from JS:
+            /*  !important because pdf.js paints this one INLINE, from JS:
                    dialogStyle.backgroundColor = findContrastColor(
                        applyOpacity(highlightColor, opacity),
                        CSSConstants.commentForegroundColor);
@@ -1080,7 +1080,7 @@ export interface PdfProfileConfig {
         /*
          * -- The comment sidebar and popup are the LIBRARY's paper -----------
          *
-         * ⚠️ ONE OWNER PER SUBTREE. The dialog above is ours: we paint its
+         *  ONE OWNER PER SUBTREE. The dialog above is ours: we paint its
          * surface, its title, its field and both buttons, so taking the
          * background completed the set. These two are the opposite -- pdf.js
          * derives their surface from the highlight colour and paints every
@@ -1117,7 +1117,7 @@ export interface PdfProfileConfig {
          *     #addSignatureError  .messageBar   amber  #5a3100
          *     #errorWrapper       legacy        red    #ff6666
          *
-         * ⚠️ #errorWrapper was not merely off-style, it FAILED: #d4d4d7 text
+         *  #errorWrapper was not merely off-style, it FAILED: #d4d4d7 text
          * on #ff6666 measures 1.75, and its detail box inverts the same pair
          * for another 1.75. Its buttons still use an outset border.
          *
@@ -1202,16 +1202,16 @@ export interface PdfProfileConfig {
         /*
          * -- The editor params popups (highlight, draw, text, image, ...) -----
          *
-         * ⚠️ Their labels were INVISIBLE: the popup keeps the library's light
+         *  Their labels were INVISIBLE: the popup keeps the library's light
          * background (#f9f9fa) while the label colour resolves from pdf.js's
          * own light-dark() palette, which returns its DARK value (#f9f9fa)
          * because we set color-scheme: inherit. Same colour, same element --
          * a mixed palette, and a side effect of that change worth naming.
          *
-         * ⚠️ The background is set at (1,0,1) by an ID rule per popup, so a
+         *  The background is set at (1,0,1) by an ID rule per popup, so a
          * .editorParamsToolbar rule at (0,1,2) loses. The six ids are named.
          *
-         * ⚠️ And --selected-outline-color / --toggle-background-color-pressed
+         *  And --selected-outline-color / --toggle-background-color-pressed
          * do NOT reach from the toolbar: both are defined on a closer scope.
          * They have to be set on the swatch and the toggle themselves.
          */
@@ -1233,11 +1233,11 @@ export interface PdfProfileConfig {
             --selected-outline-color: var(--cms-accent);
         }
         /*
-         * The toggle ("Show all") wears the brand amber (#2437), like every
+         * The toggle ("Show all") wears the brand amber, like every
          * other switch in the admin -- .cms-switch sets its ON track to
          * --cms-accent, so a blue one here reads as a foreign control.
          *
-         * ⚠️ Every toggle colour funnels through --color-accent-primary and
+         *  Every toggle colour funnels through --color-accent-primary and
          * its -hover / -active siblings. #2436 set two of the three, so
          * pressing the toggle still flashed the library's blue. Cover the
          * family, not the state that was reported.
@@ -1278,7 +1278,7 @@ export interface PdfProfileConfig {
          * toolbar is library-injected DOM and doesn't carry our Angular
          * content-scope attribute.
          *
-         * ⚠️ What this comment used to claim, and it was wrong: the options
+         *  What this comment used to claim, and it was wrong: the options
          * were not blank for a TICK, they were blank ALWAYS. AdminController
          * gated static files on an extension allowlist that never named .ftl,
          * so every locale request answered with 60KB of index.html and pdf.js
@@ -1326,7 +1326,7 @@ export class PdfViewerComponent {
     }
 
     /*
-     * -- The image tool uses OUR picker, not the browser's dialog (#2438) ----
+     * -- The image tool uses OUR picker, not the browser's dialog ----
      *
      * Only when a host app provides one: with no CMS_PDF_IMAGE_PICKER the
      * library keeps its own dialog, which is right for a consumer that has no
@@ -1383,7 +1383,7 @@ export class PdfViewerComponent {
     /*
      * A rect centred on the page that keeps the image's own aspect ratio.
      *
-     * ⚠️ addImageToAnnotationLayer defaults every omitted edge to the page
+     *  addImageToAnnotationLayer defaults every omitted edge to the page
      * edge, so leaving these out stamps the image stretched over the whole
      * sheet. Percentages are relative to the page in EACH axis independently,
      * which is why the page box's own aspect has to come into the height:

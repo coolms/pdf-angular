@@ -39,9 +39,8 @@ order:
 
 ## Status
 
-Not published, and no repository yet. `tools/publish-guard.sh` reports "no
-tracked files" for it -- the guard refusing to certify what it cannot read,
-which is not the same as a clean result.
+A pre-release: the shape is still moving and it carries no
+compatibility promise.
 
 ## Licence
 

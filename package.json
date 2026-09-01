@@ -1,7 +1,6 @@
 {
   "name": "@coolms/pdf-angular",
-  "version": "0.1.0",
-  "private": true,
+  "version": "2.0.0-alpha.1",
   "description": "The CoolMS PDF viewer for Angular. Registers itself with @coolms/document-viewer, so consumers dispatch through the viewer host rather than importing the component.",
   "license": "MIT",
   "author": {
@@ -12,8 +11,8 @@
   "peerDependencies": {
     "@angular/common": "^22.0.0",
     "@angular/core": "^22.0.0",
-    "@coolms/core-angular": "^0.2.0",
-    "@coolms/document-viewer-angular": "^0.1.0"
+    "@coolms/core-angular": "^2.0.0-alpha.1",
+    "@coolms/document-viewer-angular": "^2.0.0-alpha.1"
   },
   "dependencies": {
     "ngx-extended-pdf-viewer": "^29.0.1"
@@ -44,5 +43,8 @@
     "tslib": "^2.3.0",
     "typescript": "^6.0.0",
     "typescript-eslint": "^8.33.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -10,7 +10,7 @@ import { InjectionToken } from '@angular/core';
  *
  * The implementation returns something the viewer can hand to
  * `addImageToAnnotationLayer`: a data URL, or a URL the browser may fetch
- * without credentials. ⚠️ pdf.js fetches a plain URL with a bare `fetch()`,
+ * without credentials.  pdf.js fetches a plain URL with a bare `fetch()`,
  * outside Angular's HttpClient, so an image behind a Bearer token has to be
  * resolved to a data URL by the implementation -- the same trap this viewer
  * already documents for the PDF itself.
