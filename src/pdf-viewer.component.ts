@@ -20,8 +20,8 @@ import { NgxExtendedPdfViewerModule, NgxExtendedPdfViewerService } from 'ngx-ext
  * F.7 PDF viewer. Replaces the bare-pdfjs canvas-rendering implementation
  * with `ngx-extended-pdf-viewer`: discrete page rendering, sidebar with
  * thumbnails / outline, full toolbar (paging, zoom, find, print,
- * download, rotate). Profile config — sourced from the backend viewer
- * manifest — drives which controls the toolbar shows.
+ * download, rotate). Profile config -- sourced from the backend viewer
+ * manifest -- drives which controls the toolbar shows.
  *
  * Auth pre-fetch: `HttpClient.get(url, {responseType: 'arraybuffer'})`
  * runs through `authInterceptor` so the Bearer token attaches and a
