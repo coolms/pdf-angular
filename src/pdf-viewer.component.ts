@@ -17,7 +17,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgxExtendedPdfViewerModule, NgxExtendedPdfViewerService } from 'ngx-extended-pdf-viewer';
 
 /**
- * F.7 PDF viewer. Replaces the bare-pdfjs canvas-rendering implementation
+ * The PDF viewer. Replaces the bare-pdfjs canvas-rendering implementation
  * with `ngx-extended-pdf-viewer`: discrete page rendering, sidebar with
  * thumbnails / outline, full toolbar (paging, zoom, find, print,
  * download, rotate). Profile config -- sourced from the backend viewer
