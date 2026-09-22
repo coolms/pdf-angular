@@ -323,10 +323,9 @@ export interface PdfProfileConfig {
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton.toggled,
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton.selected,
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton[aria-selected='true'] {
-            color: var(--cms-text);
-            background-color: var(--cms-surface-alt);
-            background-color: color-mix(in srgb, var(--cms-accent) 14%, transparent);
-            border-color: var(--cms-border);
+            color: var(--cms-selected-text);
+            background-color: var(--cms-selected-light);
+            border-color: var(--cms-selected);
         }
         /*
          *  THREE classes, because the library uses three:
@@ -353,9 +352,8 @@ export interface PdfProfileConfig {
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton.toggled:hover,
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton.selected:hover,
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton[aria-selected='true']:hover {
-            color: var(--cms-text);
-            background-color: var(--cms-surface-alt);
-            background-color: color-mix(in srgb, var(--cms-accent) 22%, transparent);
+            color: var(--cms-selected-text);
+            background-color: var(--cms-selected-light);
         }
 
         /*

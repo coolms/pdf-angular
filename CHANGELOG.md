@@ -11,6 +11,16 @@ predate this file would be a worse record than not having them.
 
 ## Unreleased
 
+### Changed
+
+- A pressed toolbar button (the library's `.toggled`, `.selected` and
+  `[aria-selected='true']`, hovered or not) reads the host theme's selected
+  family -- `--cms-selected-light` under `--cms-selected-text`, bordered in
+  `--cms-selected` -- instead of a tint of the accent mixed by hand at 14
+  and 22 per cent, so a theme that moves selection moves the toolbar with
+  it. The hover of a pressed button is the pressed state; the wash no longer
+  deepens on hover.
+
 ### Added
 
 - Declares `bugs` so a page imported from this package, and the catalogue,
