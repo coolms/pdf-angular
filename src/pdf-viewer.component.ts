@@ -276,7 +276,7 @@ export interface PdfProfileConfig {
             outline: none;
         }
         cms-pdf-viewer ngx-extended-pdf-viewer button:focus-visible {
-            outline: 2px solid var(--cms-primary);
+            outline: 2px solid var(--cms-focus-ring, #7c4d00);
             outline-offset: -2px;
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton[disabled],
@@ -1067,7 +1067,7 @@ export interface PdfProfileConfig {
             border-color: var(--cms-accent-hover) !important;
         }
         cms-pdf-viewer ngx-extended-pdf-viewer #commentManagerDialog .dialogButtonsGroup button:focus-visible {
-            outline: 2px solid var(--cms-accent);
+            outline: 2px solid var(--cms-focus-ring, #7c4d00);
             outline-offset: 2px;
         }
         cms-pdf-viewer ngx-extended-pdf-viewer #commentManagerDialog .dialogButtonsGroup button:disabled {
@@ -1254,7 +1254,7 @@ export interface PdfProfileConfig {
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .editorParamsToolbar .toggle-button:focus-visible {
             outline: none;
-            box-shadow: 0 0 0 3px var(--cms-accent-light);
+            box-shadow: 0 0 0 2px var(--cms-surface, #ffffff), 0 0 0 4px var(--cms-focus-ring, #7c4d00);
         }
         /*
          * The container declares gap: 16px and is display: block, where a gap
