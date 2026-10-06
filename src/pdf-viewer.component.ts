@@ -246,7 +246,7 @@ export interface PdfProfileConfig {
              * (#9aa8bd) measures 6.61:1 and is still chrome rather than
              * headline; full text (#e8edf4) would be 13.42:1 and shouts.
              */
-            color: var(--cms-text-secondary, #6b7280);
+            color: var(--cms-text-secondary, #525a66);
         }
         /*
          * The disabled state has to be STATED now. The library dims it through
@@ -281,7 +281,7 @@ export interface PdfProfileConfig {
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton[disabled],
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbarButton[disabled] {
-            color: var(--cms-text-muted, #848b96);
+            color: var(--cms-text-muted, #69707c);
             cursor: default;
         }
         /*
@@ -290,7 +290,7 @@ export interface PdfProfileConfig {
          */
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton[disabled]:hover,
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbarButton[disabled]:hover {
-            color: var(--cms-text-muted, #848b96);
+            color: var(--cms-text-muted, #69707c);
             background-color: transparent;
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton:hover,
@@ -382,7 +382,7 @@ export interface PdfProfileConfig {
          * a hovered disabled button should still read disabled.
          */
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbar .secondaryToolbarButton {
-            color: var(--cms-text-secondary, #6b7280);
+            color: var(--cms-text-secondary, #525a66);
         }
         /*
          * The active row, on the admin's OWN convention rather than an
@@ -425,7 +425,7 @@ export interface PdfProfileConfig {
             background-color: color-mix(in srgb, var(--cms-accent) 22%, transparent);
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbar .secondaryToolbarButton[disabled] {
-            color: var(--cms-text-muted, #848b96);
+            color: var(--cms-text-muted, #69707c);
             cursor: default;
         }
 
@@ -452,7 +452,7 @@ export interface PdfProfileConfig {
             border-color: var(--cms-border);
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .html .toolbarLabel {
-            color: var(--cms-text-secondary, #6b7280);
+            color: var(--cms-text-secondary, #525a66);
         }
         /* The dropdown wrapper is a light-grey box of its own (#aeaeaf), and
            its option list is painted separately from the closed select. */
