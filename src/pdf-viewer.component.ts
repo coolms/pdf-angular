@@ -15,6 +15,10 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgxExtendedPdfViewerModule, NgxExtendedPdfViewerService } from 'ngx-extended-pdf-viewer';
+import { pinPdfSafetyOptions } from './pdf-safety';
+
+// Before any viewer exists: what a PDF may do is decided at load, never left to the library's defaults.
+pinPdfSafetyOptions();
 
 /**
  * The PDF viewer. Replaces the bare-pdfjs canvas-rendering implementation
