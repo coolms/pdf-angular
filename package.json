@@ -18,7 +18,7 @@
     "ngx-extended-pdf-viewer": "^29.0.1"
   },
   "engines": {
-    "node": "^22.22.3 || ^24.15.0 || >=26"
+    "node": "^22.22.3 || ^24.15.0 || ^26.0.0"
   },
   "bugs": {
     "url": "https://github.com/coolms/pdf-angular/issues"
