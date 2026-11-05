@@ -102,7 +102,7 @@ export interface PdfProfileConfig {
             color: var(--cms-text-muted);
         }
         .cms-pdf-viewer__error {
-            color: var(--cms-danger, #dc2626);
+            color: var(--cms-danger, #b91c1c);
         }
         /*
          * -- The viewer wears the admin's theme ------------------
@@ -285,7 +285,7 @@ export interface PdfProfileConfig {
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton[disabled],
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbarButton[disabled] {
-            color: var(--cms-text-muted, #69707c);
+            color: var(--cms-text-muted, #4b5563);
             cursor: default;
         }
         /*
@@ -294,7 +294,7 @@ export interface PdfProfileConfig {
          */
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton[disabled]:hover,
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbarButton[disabled]:hover {
-            color: var(--cms-text-muted, #69707c);
+            color: var(--cms-text-muted, #4b5563);
             background-color: transparent;
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .toolbarButton:hover,
@@ -429,7 +429,7 @@ export interface PdfProfileConfig {
             background-color: color-mix(in srgb, var(--cms-accent) 22%, transparent);
         }
         cms-pdf-viewer ngx-extended-pdf-viewer .secondaryToolbar .secondaryToolbarButton[disabled] {
-            color: var(--cms-text-muted, #69707c);
+            color: var(--cms-text-muted, #4b5563);
             cursor: default;
         }
 
